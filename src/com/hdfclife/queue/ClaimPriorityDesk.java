@@ -12,46 +12,31 @@ public class ClaimPriorityDesk {
     public static List<String> process(
             List<Claim> claims) {
 
-        PriorityQueue<Claim> queue =
-                new PriorityQueue<>(
-                        (a, b) -> {
+        PriorityQueue<Claim> queue =new PriorityQueue<>((a, b) -> {int aPriority = priority(a.getUrgency());
 
-                            int aPriority =
-                                    priority(
-                                            a.getUrgency()
-                                    );
+        int bPriority =priority(b.getUrgency());
 
-                            int bPriority =
-                                    priority(
-                                            b.getUrgency()
-                                    );
+         if (aPriority !=bPriority) {
 
-                            if (aPriority !=
-                                    bPriority) {
+            return bPriority - aPriority;
+                            
+         }
 
-                                return bPriority -
-                                        aPriority;
-                            }
-
-                            return b.getAmount() -
-                                    a.getAmount();
-                        }
-                );
+        return b.getAmount() -
+        a.getAmount();
+        }
+        );
 
         for (Claim claim : claims) {
 
             queue.offer(claim);
         }
 
-        List<String> result =
-                new ArrayList<>();
+        List<String> result =new ArrayList<>();
 
         while (!queue.isEmpty()) {
 
-            result.add(
-                    queue.poll()
-                            .getClaimId()
-            );
+            result.add(queue.poll().getClaimId());
         }
 
         return result;
