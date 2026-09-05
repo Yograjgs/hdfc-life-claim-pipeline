@@ -35,9 +35,7 @@ public class LinkedClaimStack
 
         if (isEmpty()) {
 
-            throw new StackEmptyException(
-                    "Stack is empty"
-            );
+            throw new StackEmptyException( "Stack is empty");
         }
 
         int value = top.value;
@@ -52,9 +50,7 @@ public class LinkedClaimStack
 
         if (isEmpty()) {
 
-            throw new StackEmptyException(
-                    "Stack is empty"
-            );
+            throw new StackEmptyException("Stack is empty");
         }
 
         return top.value;
