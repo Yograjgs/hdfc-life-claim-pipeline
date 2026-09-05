@@ -9,23 +9,9 @@ public class BranchBfs {
 
     public static List<String> bfs() {
 
-        String[] branches = {
-                "MUMBAI",
-                "PUNE",
-                "DELHI",
-                "HYDERABAD",
-                "KOLKATA",
-                "CHENNAI"
-        };
+        String[] branches = {"MUMBAI","PUNE","DELHI","HYDERABAD","KOLKATA","CHENNAI"};
 
-        int[][] graph = {
-                {1, 2},
-                {3},
-                {4},
-                {5},
-                {},
-                {}
-        };
+        int[][] graph = {{1, 2},{3},{4},{5},{},{}};
 
         boolean[] visited =
                 new boolean[branches.length];
@@ -45,12 +31,10 @@ public class BranchBfs {
             int current =
                     queue.poll();
 
-            result.add(
-                    branches[current]
-            );
+            result.add(branches[current]
+             );
 
-            for (int neighbour :
-                    graph[current]) {
+            for (int neighbour :graph[current]) {
 
                 if (!visited[neighbour]) {
 
