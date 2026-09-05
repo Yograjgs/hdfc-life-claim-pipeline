@@ -9,14 +9,11 @@ public class ProducerConsumer {
     public static List<Integer> run()
             throws InterruptedException {
 
-        ArrayBlockingQueue<Integer> queue =
-                new ArrayBlockingQueue<>(2);
+        ArrayBlockingQueue<Integer> queue =new ArrayBlockingQueue<>(2);
 
-        List<Integer> result =
-                new ArrayList<>();
+        List<Integer> result =new ArrayList<>();
 
-        Thread producer =
-                new Thread(() -> {
+        Thread producer =new Thread(() -> {
 
                     try {
 
@@ -26,32 +23,23 @@ public class ProducerConsumer {
 
                     } catch (InterruptedException e) {
 
-                        Thread.currentThread()
-                                .interrupt();
+                        Thread.currentThread().interrupt();
                     }
                 });
 
-        Thread consumer =
-                new Thread(() -> {
+        Thread consumer = new Thread(() -> {
 
                     try {
 
-                        result.add(
-                                queue.take()
-                        );
+                        result.add(queue.take());
 
-                        result.add(
-                                queue.take()
-                        );
+                        result.add(queue.take());
 
-                        result.add(
-                                queue.take()
-                        );
+                        result.add(queue.take());
 
                     } catch (InterruptedException e) {
 
-                        Thread.currentThread()
-                                .interrupt();
+                        Thread.currentThread().interrupt();
                     }
                 });
 
