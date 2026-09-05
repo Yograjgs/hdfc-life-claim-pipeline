@@ -20,9 +20,7 @@ public class ArrayClaimStack
 
         if (top == stack.length - 1) {
 
-            throw new StackFullException(
-                    "Stack is full"
-            );
+            throw new StackFullException("Stack is full");
         }
 
         stack[++top] = value;
@@ -32,10 +30,7 @@ public class ArrayClaimStack
     public int pop() {
 
         if (isEmpty()) {
-
-            throw new StackEmptyException(
-                    "Stack is empty"
-            );
+                throw new StackEmptyException("Stack is empty");
         }
 
         return stack[top--];
@@ -46,9 +41,7 @@ public class ArrayClaimStack
 
         if (isEmpty()) {
 
-            throw new StackEmptyException(
-                    "Stack is empty"
-            );
+            throw new StackEmptyException("Stack is empty");
         }
 
         return stack[top];
